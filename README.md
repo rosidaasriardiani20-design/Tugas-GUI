@@ -57,26 +57,21 @@ Cara Menjalankan
 2. Buka folder "src".
 3. Jalankan file "PemilihanHari.java".
 
-Screenshot Hasil Aplikasi
+## Screenshot Hasil Aplikasi
 
-Berikut merupakan dokumentasi screenshot aplikasi setelah dijalankan:
+Berikut merupakan dokumentasi screenshot aplikasi setelah dijalankan.
 
-Screenshot 1
+### Screenshot 1
+![Hasil 1](sreenshot/hasil1.png)
 
-"Hasil 1" (sreenshot/hasil1.png)
+### Screenshot 2
+![Hasil 2](sreenshot/hasil2.png)
 
-Screenshot 2
+### Screenshot 3
+![Hasil 3](sreenshot/hasil3.png)
 
-"Hasil 2" (sreenshot/hasil2.png)
+### Screenshot 4
+![Hasil 4](sreenshot/hasil4.png)
 
-Screenshot 3
-
-"Hasil 3" (sreenshot/hasil3.png)
-
-Screenshot 4
-
-"Hasil 4" (sreenshot/hasil4.png)
-
-Screenshot 5
-
-"Hasil 5" (sreenshot/hasil5.png)
+### Screenshot 5
+![Hasil 5](sreenshot/hasil5.png)
