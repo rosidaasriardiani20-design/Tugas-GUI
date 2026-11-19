@@ -4,67 +4,94 @@ import java.awt.event.*;
 
 public class PemilihanHari extends JFrame implements ActionListener {
 
-    JLabel judul;
-    JLabel hasil;
-    JPanel panelJudul;
+    JPanel panelUtama;
+    JPanel panelHeader;
+    JPanel panelTengah;
+    JPanel panelForm;
     JPanel panelTombol;
-    JPanel panelHasil;
-    JButton tombolSenin;
-    JButton tombolSelasa;
-    JButton tombolRabu;
-    JButton tombolKamis;
-    JButton tombolJumat;
-    JButton tombolSabtu;
+
+    JLabel judul;
+    JLabel labelNama;
+    JLabel labelHari;
+
+    JTextField fieldNama;
+    JComboBox<String> comboHari;
+
+    JButton tombolPilih;
+    JButton tombolBersihkan;
+    JButton tombolKeluar;
+
+    JTextArea areaHasil;
+    JScrollPane scrollPane;
 
     public PemilihanHari() {
+
         judul = new JLabel(
             "APLIKASI PEMILIHAN HARI",
             SwingConstants.CENTER
         );
-        hasil = new JLabel(
-            "Hari yang dipilih: Belum ada pilihan",
-            SwingConstants.CENTER
-        );
-        panelJudul = new JPanel();
+
+        labelNama = new JLabel("Nama Pengguna:");
+        labelHari = new JLabel("Pilih Hari:");
+
+        fieldNama = new JTextField(15);
+
+        String[] daftarHari = {
+            "Senin", "Selasa", "Rabu",
+            "Kamis", "Jumat", "Sabtu"
+        };
+
+        comboHari = new JComboBox<>(daftarHari);
+
+        tombolPilih = new JButton("Pilih");
+        tombolBersihkan = new JButton("Bersihkan");
+        tombolKeluar = new JButton("Keluar");
+
+        areaHasil = new JTextArea(8, 30);
+        areaHasil.setEditable(false);
+        areaHasil.setLineWrap(true);
+        areaHasil.setWrapStyleWord(true);
+
+        scrollPane = new JScrollPane(areaHasil);
+
+        panelUtama = new JPanel();
+        panelHeader = new JPanel();
+        panelTengah = new JPanel();
+        panelForm = new JPanel();
         panelTombol = new JPanel();
-        panelHasil = new JPanel();
 
-        tombolSenin = new JButton("Senin");
-        tombolSelasa = new JButton("Selasa");
-        tombolRabu = new JButton("Rabu");
-        tombolKamis = new JButton("Kamis");
-        tombolJumat = new JButton("Jumat");
-        tombolSabtu = new JButton("Sabtu");
+        panelUtama.setLayout(new BorderLayout(10, 10));
+        panelHeader.setLayout(new FlowLayout());
+        panelTengah.setLayout(new BorderLayout(10, 10));
+        panelForm.setLayout(new GridLayout(2, 2, 10, 10));
+        panelTombol.setLayout(new FlowLayout());
 
-        panelJudul.setLayout(new FlowLayout());
-        panelTombol.setLayout(new GridLayout(2, 3, 10, 10));
-        panelHasil.setLayout(new FlowLayout());
+        panelHeader.add(judul);
 
-        panelJudul.add(judul);
-        panelTombol.add(tombolSenin);
-        panelTombol.add(tombolSelasa);
-        panelTombol.add(tombolRabu);
-        panelTombol.add(tombolKamis);
-        panelTombol.add(tombolJumat);
-        panelTombol.add(tombolSabtu);
+        panelForm.add(labelNama);
+        panelForm.add(fieldNama);
+        panelForm.add(labelHari);
+        panelForm.add(comboHari);
 
-        panelHasil.add(hasil);
+        panelTombol.add(tombolPilih);
+        panelTombol.add(tombolBersihkan);
+        panelTombol.add(tombolKeluar);
 
-        setLayout(new BorderLayout(10, 10));
+        panelTengah.add(panelForm, BorderLayout.NORTH);
+        panelTengah.add(panelTombol, BorderLayout.CENTER);
 
-        add(panelJudul, BorderLayout.NORTH);
-        add(panelTombol, BorderLayout.CENTER);
-        add(panelHasil, BorderLayout.SOUTH);
+        panelUtama.add(panelHeader, BorderLayout.NORTH);
+        panelUtama.add(panelTengah, BorderLayout.CENTER);
+        panelUtama.add(scrollPane, BorderLayout.SOUTH);
 
-        tombolSenin.addActionListener(this);
-        tombolSelasa.addActionListener(this);
-        tombolRabu.addActionListener(this);
-        tombolKamis.addActionListener(this);
-        tombolJumat.addActionListener(this);
-        tombolSabtu.addActionListener(this);
+        add(panelUtama);
+
+        tombolPilih.addActionListener(this);
+        tombolBersihkan.addActionListener(this);
+        tombolKeluar.addActionListener(this);
 
         setTitle("Aplikasi Pemilihan Hari");
-        setSize(500, 300);
+        setSize(500, 450);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
     }
@@ -72,23 +99,32 @@ public class PemilihanHari extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getSource() == tombolSenin) {
-            hasil.setText("Hari yang dipilih: Senin");
+        if (e.getSource() == tombolPilih) {
 
-        } else if (e.getSource() == tombolSelasa) {
-            hasil.setText("Hari yang dipilih: Selasa");
+            String nama = fieldNama.getText().trim();
+            String hari = (String) comboHari.getSelectedItem();
 
-        } else if (e.getSource() == tombolRabu) {
-            hasil.setText("Hari yang dipilih: Rabu");
+            if (nama.isEmpty()) {
+                JOptionPane.showMessageDialog(
+                    this,
+                    "Nama pengguna harus diisi!"
+                );
+            } else {
+                areaHasil.append(
+                    "Nama: " + nama +
+                    " | Hari yang dipilih: " + hari + "\n"
+                );
+            }
 
-        } else if (e.getSource() == tombolKamis) {
-            hasil.setText("Hari yang dipilih: Kamis");
+        } else if (e.getSource() == tombolBersihkan) {
 
-        } else if (e.getSource() == tombolJumat) {
-            hasil.setText("Hari yang dipilih: Jumat");
+            fieldNama.setText("");
+            comboHari.setSelectedIndex(0);
+            areaHasil.setText("");
 
-        } else if (e.getSource() == tombolSabtu) {
-            hasil.setText("Hari yang dipilih: Sabtu");
+        } else if (e.getSource() == tombolKeluar) {
+
+            dispose();
         }
     }
 
