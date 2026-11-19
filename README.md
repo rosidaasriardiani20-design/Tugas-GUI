@@ -62,16 +62,16 @@ Cara Menjalankan
 Berikut merupakan dokumentasi screenshot aplikasi setelah dijalankan.
 
 ### Screenshot 1
-![Hasil 1](sreenshot/hasil1.png)
+![Hasil 1](https://raw.githubusercontent.com/rosidaasriardiani20-design/Tugas-GUI/main/Tugas_PBO/sreenshot/hasil1.png)
 
 ### Screenshot 2
-![Hasil 2](sreenshot/hasil2.png)
+![Hasil 2](https://raw.githubusercontent.com/rosidaasriardiani20-design/Tugas-GUI/main/Tugas_PBO/sreenshot/hasil2.png)
 
 ### Screenshot 3
-![Hasil 3](sreenshot/hasil3.png)
+![Hasil 3](https://raw.githubusercontent.com/rosidaasriardiani20-design/Tugas-GUI/main/Tugas_PBO/sreenshot/hasil3.png)
 
 ### Screenshot 4
-![Hasil 4](sreenshot/hasil4.png)
+![Hasil 4](https://raw.githubusercontent.com/rosidaasriardiani20-design/Tugas-GUI/main/Tugas_PBO/sreenshot/hasil4.png)
 
 ### Screenshot 5
-![Hasil 5](sreenshot/hasil5.png)
+![Hasil 5](https://raw.githubusercontent.com/rosidaasriardiani20-design/Tugas-GUI/main/Tugas_PBO/sreenshot/hasil5.png)
